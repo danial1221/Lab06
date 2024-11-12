@@ -1,35 +1,33 @@
 using System;
 using System.Collections.Generic;
 
-class DictionaryDemo
+class DictionaryActivity
 {
     static void Main()
     {
-        // Create dictionary
         Dictionary<string, string> countries = new Dictionary<string, string>();
 
-        // Add countries
-        countries["USA"] = "Washington DC";
-        countries["India"] = "New Delhi";  // Corrected to proper capital
-        countries["Pakistan"] = "Islamabad";  // Corrected to proper capital
+        countries["USA"] = "Washington D.C";
+        countries["France"] = "Paris";
+        countries["Japan"] = "Tokyo";
+        countries["Pakistan"] = "Multan";
 
-        // Display all countries
+        Console.WriteLine("countries and Capitals");
         foreach (var pair in countries)
         {
-            Console.WriteLine($"{pair.Key}: {pair.Value}");
+            Console.WriteLine($"{pair.Key} : {pair.Value}");
         }
 
-        // Retrieve capital of specific country
-        Console.WriteLine($"\nCapital of Pakistan: {countries["Pakistan"]}");
+        Console.WriteLine($"Capital of Japan:{countries["Japan"]}");
 
-        // Remove country
-        countries.Remove("USA");
+        countries.Remove("france");
 
-        // Display updated countries and capitals
-        Console.WriteLine("\nUpdated countries and capitals:");
+        Console.WriteLine(" Updated countries and Capitals");
         foreach (var pair in countries)
         {
-            Console.WriteLine($"{pair.Key}: {pair.Value}");
+            Console.WriteLine($"{pair.Key} : {pair.Value}");
         }
+
+
     }
 }
