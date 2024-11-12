@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+
+class StudentManagementSystem
+{
+    static void Main()
+    {
+        Dictionary<string,List<int>> students = new Dictionary<string, List<int>>();
+
+        students["Alice"] = new List<int> { 85, 90, 88 };
+        students["Bob"] = new List<int> { 70, 60, 75 };
+        students["Charlie"] = new List<int> { 95, 92, 94 };
+        students["Daisy"] = new List<int> { 55, 60, 58 };
+
+
+        Console.WriteLine("Students Average:");
+        foreach (var student in students)
+        {
+            double average= student.Value.Average();
+            Console.WriteLine($"{student.Key}:{average:F2}");  
+        }
+        var topStudent =  students.OrderByDescending(s => s. Value.Average()).First();
+        var LowStudent = students.OrderBy(s => s.Value.Average()).First();
+
+
+        Console.WriteLine($"\nTop Performer: {topStudent.Key} with average of {topStudent.Value.Average():F2}");
+
+        Console.WriteLine($"\nLow Performer: {LowStudent.Key} with average of {LowStudent.Value.Average():F2}");
+
+
+        //remove students with low grades
+
+        var failingstudent = students.Where(s => s.Value.Average() < 10).Select(s => s.Key).ToList();
+
+        foreach (var student in failingstudent)
+        {
+
+
+            students.Remove(student);
+
+
+
+        }
+
+        //display remaining students
+
+        Console.WriteLine("\n remaining students: ");
+
+        foreach (var student in students)
+        {
+
+            Console.WriteLine(student.Key);
+        }
+
+
+
+
+
+
+    }
+}
